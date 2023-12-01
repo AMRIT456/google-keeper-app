@@ -246,7 +246,7 @@ function App() {
   const appStyle = {
     display: "flex",
     justifyContent: "space-evenly", 
-    height: "40vh", 
+    height: "250px", 
     padding: "10px", 
   };
 
@@ -260,7 +260,7 @@ function App() {
   return (
     <div>
       <Header onSearch={serachNote} />
-      <div style={appStyle}>
+      <div style={appStyle} className="outerdiv">
         <Sidebar onsection={sectionselection}/>
         <div style={createAreaWrapperStyle}>
         {
