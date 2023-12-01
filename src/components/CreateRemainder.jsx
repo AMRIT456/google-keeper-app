@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function CreateArea(props) {
-  const [note, setNote] = useState({
+function CreateRemainder(props) {
+  const [remaindernote, setRemaindernote] = useState({
     title: "",
     content: ""
   });
@@ -9,9 +9,9 @@ function CreateArea(props) {
   function handleChange(event) {
     const { name, value } = event.target;
 
-    setNote(prevNote => {
+    setRemaindernote(prevremaindernote => {
       return {
-        ...prevNote,
+        ...prevremaindernote,
         [name]: value
       };
     });
@@ -19,10 +19,11 @@ function CreateArea(props) {
 
   const submitNote =async (event)=> {
     event.preventDefault();
-    props.onAdd(note);
-    const{title,content}=note;
+    props.onAddRemainder(remaindernote);
+    const{title,content}=remaindernote;
     
-    const res=await fetch('https://keeperapp-a2c53-default-rtdb.firebaseio.com/googlekeep.json',{
+    const res=await fetch('https://keeperapp-a2c53-default-rtdb.firebaseio.com/remainderdb.json',{
+      
       method:"POST",
       headers:{
         "Content-Type":"application/json",
@@ -33,7 +34,7 @@ function CreateArea(props) {
       })
     })
     console.log(res);
-    setNote({
+    setRemaindernote({
       title: "",
       content: ""
     });
@@ -47,14 +48,14 @@ function CreateArea(props) {
         <input
           name="title"
           onChange={handleChange}
-          value={note.title}
+          value={remaindernote.title}
           placeholder="Title"
         />
         <textarea
           name="content"
           onChange={handleChange}
-          value={note.content}
-          placeholder="Take a note..."
+          value={remaindernote.content}
+          placeholder="Take a remaindernote..."
          rows="3"
         />
         <button onClick={submitNote}>Add</button>
@@ -63,4 +64,4 @@ function CreateArea(props) {
   );
 }
 
-export default CreateArea;
+export default CreateRemainder;

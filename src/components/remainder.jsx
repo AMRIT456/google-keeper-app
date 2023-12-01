@@ -1,11 +1,11 @@
 import React from "react";
 
-function Note(props) {
+function Remainder(props) {
   function handleClick() {
-    props.onDelete(props.id);
+    props.onDeleteremainder(props.id);
   }
   function handlearchive(){
-    props.onarchive(props.id);
+    props.onarchiveremainder(props.id);
   }
   return (
     <div className="note">
@@ -17,5 +17,5 @@ function Note(props) {
   );
 }
 
-export default Note;
+export default Remainder;
 
